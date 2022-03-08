@@ -1,0 +1,24 @@
+{% extends "admin/base.html.twig" %}
+
+
+{% block body %}
+   <div class="container py-5">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <a class="btn btn-dark" href="{{ path('admin_product_index') }}">Retour</a>
+        </div>
+        <div class="col-12">
+            <div class="card" >
+                <div class="card-header">
+                    <h5>Ajouter une produit</h5>
+                </div>
+            
+                <div class="card-body">
+                    {{ include('admin/product/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+     
+{% endblock %}

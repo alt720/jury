@@ -1,0 +1,20 @@
+{% extends "admin/base.html.twig" %}
+
+{% block body %}
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 mb-3">
+                {{form_start(form)}}
+                {{form_widget(form)}}
+                <button type="submit" class="btn btn-primary mt-3">Rechercher</button>
+                <a href={{ path('admin_product_index') }} class="btn btn-secondary mt-3">Réinitialiser</a>
+                {{form_end(form)}}
+            </div>
+            <div class="col-12 mb-3">
+                <a href="{{ path('admin_product_new') }}" class="btn btn-primary">Ajouter un produit</a>
+            </div>
+
+        </div>
+    </div>     
+{% endblock %}

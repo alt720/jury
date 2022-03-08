@@ -1,0 +1,53 @@
+{% extends 'custom/base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+ 
+ <div class='container '>
+    <div class="row">
+
+        <div id="carouselExampleSlidesOnly" class=" carousel slide   " data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://media.vandal.net/i/640x360/2-2022/2022211756960_1.jpg" class=" imageCarousel " alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="https://compass-ssl.xbox.com/assets/f4/33/f4334b89-2ea2-4f28-a07d-1be0dc219123.jpg?n=Cyberpunk-2077_GLP-Page-Hero-0_1083x609_08.jpg" class=" d-block w-100 imageCarousel" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="https://image.jeuxvideo.com/medias-md/163587/1635869582-908-card.png" class="d-block w-100 imageCarousel" alt="...">
+            </div>
+          </div>
+        </div>
+     </div>
+</div>
+
+ <div class='container '>
+    <div class="row">
+
+             <div class="container py-5 ">
+        <div class="row ">
+        
+            {% include "_messages_flash.html.twig" %}
+
+            {% for product in products %}
+                <div class="col-3">
+                    <div class="card" >
+                        <img src="{{ product.image }}" class="card-img-top w-100 imageCard"  alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p>{{ product.price | euroPrice }}</p>
+                        </div>
+                        <div class="card-footer">
+                        <a href="{{ path('cart_add',{'id': product.id}) }}" class="btn btn-primary w-100">Ajouter au panier</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+     </div>
+</div>
+
+{% endblock %}

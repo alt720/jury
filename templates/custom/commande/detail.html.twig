@@ -1,0 +1,96 @@
+{% extends "custom/base.html.twig" %}
+
+{% block body %}
+
+<div class="container py-5">
+    <div class="row ">
+        <div class="col-12 mb-3">
+            <a href="{{ path('command_shop_list') }}" class="btn btn-dark">Revenir aux commandes</a>
+        </div>
+        <div class="col-12">
+            <h3 class="text-center">
+                Commande #{{ commandShop.id }}
+            </h3>
+        </div>
+
+        
+        {% include "_messages_flash.html.twig" %}
+      
+
+        <div class="col-sm-12 col-md-6 mt-3">
+
+            <div class="card">
+                <div class="card-body">
+                
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Produit</th>
+                                        <th scope="col">P.U</th>
+                                        <th scope="col" >Qté</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in commandShop.commandShopLines %}
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src=" {{ item.product.image }}" alt="{{ item.product.name }}" class="imageProductCart">
+                                                    <div class="d-flex flex-column align-items-center justify-content-center">
+                                                        <p>{{ item.product.name }}</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{ item.product.price | euroPrice }}</td>
+                                            <td>
+                                                <button class="btn btn-light">{{ item.quantity }}</button>
+                                            </td>
+                                            <td>{{ item.total | euroPrice }}</td>
+                                        </tr>
+                                    {% endfor%}
+                                    <tr>
+                                        <th colspan="2"></th>
+                                        <th><strong>Sous Total</strong></th>
+                                        <th><strong>{{ commandShop.totalPrice | euroPrice }}</strong></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+    
+                </div>
+                <div class="card-footer">
+                     {% if commandShop.isPayed is same as false %}
+                        <span class="text-secondary">Non payée</span>
+                    {% else %}
+                            <span class="text-success">Payée</span>
+                    {% endif %}
+                </div>
+              
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-md-6 mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Adresse de livraison</h3>
+                </div>
+                <div class="card-body">
+                    <p>Pays : {{ commandShop.deliveryAddress.country }}</p>
+                     <p>Ville : {{ commandShop.deliveryAddress.city }}</p>
+                      <p>Code Postal : {{ commandShop.deliveryAddress.postalCode }}</p>
+                       <p>Rue  : {{ commandShop.deliveryAddress.street }}</p>
+                        <p>Commentaire : {{ commandShop.deliveryAddress.commentary }}</p>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ path('admin_home') }}">Secteur admin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+       <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="">Actu</a>
+        </li>
+
+<li class="nav-item dropdown bg-transparent">
+
+          <a class="nav-link bg-transparent " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Mon Shop
+          </a>
+          <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
+            
+
+        <li class="nav-item">
+          <a class="dropdown-item active" aria-current="page" href="{{ path('admin_category_index') }}">Categories</a>
+        </li>
+
+         <li class="nav-item">
+          <a class="dropdown-item active" aria-current="page" href="{{ path('admin_product_index')}}">Produits</a>
+        </li>
+           
+
+          </ul>
+
+           
+         
+        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Mon panier</a>
+        </li>
+    <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ path('home') }}">revenire au site</a>
+        </li>
+    
+ 
+        
+        
+      </ul>
+      </li>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark  navHaeder">
+  <div class="container-fluid">
+    <a class="navbar-brand alink" href="{{ path('home') }}">Video Gaming</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+       <li class="nav-item">
+          <a class="nav-link alink active" aria-current="page" href="{{ path('app_actu')}}">Actu</a>
+        </li>
+
+          <li class="nav-item">
+          <a class="nav-link alink active" aria-current="page" href="#">New</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link alink active" aria-current="page" href="#">Jeux video</a>
+          </li>
+         
+        
+        <li class="nav-item bg-transparent ">
+          <a class="nav-link active bg-transparent alink" aria-current="page" href="{{ path('cart_detail')}}">Mon panier</a>
+        </li>
+    
+    <li class="nav-item dropdown bg-transparent">
+          <a class="nav-link alink opacity-75" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Connection
+          </a>
+          <ul class="dropdown-menu  border-0" aria-labelledby="navbarDropdown">
+            <li class="bg-transparent"><a class="dropdown-item" href="">Mon profil</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+         {% if app.user %}
+
+          {% if is_granted("ROLE_ADMIN") %}
+
+            <li class="nav-item">
+              <a class="dropdown-item" href="{{ path('admin_home') }}">Administration</a>
+            </li>
+
+          {% endif %}
+
+             <li class="nav-item dropdown">
+              <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mon compte
+              </a>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+            </li>
+           
+
+        {% else %}
+
+          <li class="nav-item">
+            <a class="dropdown-item" href="{{ path('app_login') }}">Se connecter</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="dropdown-item" href="{{ path('app_register') }}">S'inscrire</a>
+          </li>
+
+        {% endif %}
+
+          </ul>
+          
+          <li class="nav-item">
+          <a class="nav-link" href="{{ path('contact') }}">Prendre contact</a>
+        </li>
+        </li>
+        
+      </ul>
+      
+    </div>
+  </div>
+</nav>

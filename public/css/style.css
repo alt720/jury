@@ -1,0 +1,58 @@
+
+body{
+  background-image:  url(https://www.xboxygen.com/IMG/png/share.png);
+  background-repeat: no-repeat;
+
+
+
+}
+
+.navHaeder {
+  background-color:  rgb(179, 255, 0);
+  text-decoration: none;
+  justify-content: end;
+  position: fixed;
+  z-index: 11000000;
+  width: 100%;
+  opacity: 75;
+  border-color: 1px rgb(0, 0, 0);
+}
+.navitem a {
+
+  margin: 0 5px;
+  border-right: 5px white;
+  font-size: 15px;
+}
+
+.carousel{
+  padding-top: 120px;
+
+}
+.imageCarousel {
+  width: 100% !important;
+  height: 300px !important;
+  object-fit: cover !important;
+ 
+}
+
+.alink {
+  color: rgb(0, 0, 0) !important;
+}
+.navitem {
+  background-color:  rgb(44, 44, 44);
+  z-index: 1000000;
+  text-decoration: none;
+  padding-top: 65px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.imageCard {
+  height: 300px;
+  object-fit: cover;
+}
+
+.imageProductCart {
+  height: 50px;
+  object-fit: cover;
+}
